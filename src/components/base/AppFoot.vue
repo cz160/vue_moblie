@@ -2,7 +2,7 @@
     <div>
         <div class="foot">
             <router-link to="/home" class="active home">首页</router-link>
-            <router-link to="home" class="job">职位</router-link>
+            <router-link to="/job" class="job">职位</router-link>
             <router-link to="home" class="xbs">小白说</router-link>
             <router-link to="/mine"  class="mine">我的</router-link>
         </div>

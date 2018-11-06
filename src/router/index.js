@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import AppHome from '@pages/home/AppHome'
 import AppMine from '@pages/mine/AppMine'
+import AppJob from '@pages/job/AppJob'
 
 //路由表
 const routes = [
@@ -19,6 +20,12 @@ const routes = [
         path:'/mine',
         name:'mine',
         component:AppMine
+
+    },
+    {
+        path:'/job',
+        name:'job',
+        component:AppJob
 
     }
 ]
