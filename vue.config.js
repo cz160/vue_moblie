@@ -25,5 +25,6 @@ module.exports = {
             .set('@libs',resolve('src/libs'))
             .set('@pages', resolve('src/pages'))
             .set('@c', resolve('src/components'))
+            .set('@util', resolve('src/util'))
     }
 }

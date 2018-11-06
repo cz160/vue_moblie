@@ -5,7 +5,7 @@ import App from './App.vue'
 
 //flexible 移动端适配
 import '@libs/flexible'
-import './util'
+import './libs'
 //阻止vue的提示
 Vue.config.productionTip = false
 
