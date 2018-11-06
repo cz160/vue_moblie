@@ -3,19 +3,19 @@
     <main>
        <app-home></app-home>
     </main>
-    <footer>
-         
-    </footer>
+    <app-foot></app-foot>
   </div>
 </template>
 <script>
 
 //引入home页根组件
 import AppHome from '@pages/home/AppHome'
+import AppFoot from '@c/base/AppFoot'
 export default {
     name:'app',
     components:{
-      AppHome
+      AppHome,
+      AppFoot
     }
 }
 </script>

@@ -19,7 +19,9 @@ export default {
           el: ".swiper-pagination"
         },
         loop: true,
-        autoplay: true
+         autoplay: {
+          disableOnInteraction: false,
+        },
       },
       billboards: [
         {
