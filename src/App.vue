@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <main>
-      <router-view></router-view>
-       <app-home></app-home>
-       <!--<app-job></app-job>-->
+       <router-view></router-view>
     </main>
     <app-foot></app-foot>
   </div>
@@ -25,5 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+    body{
+        background-color: #f5f5f5;
+    }
 </style>

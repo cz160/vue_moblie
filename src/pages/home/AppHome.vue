@@ -43,6 +43,9 @@ export default {
         width: 100%;
         height: 100%;
     }
+    ul{
+        list-style: none;
+    }
     a{
         text-decoration: none;
     }
@@ -53,6 +56,7 @@ export default {
             height: 1.6rem;
             display: flex;
             justify-content: space-between;
+            background-color: #fff;
             a{
                 width: 33%;
                 text-align: center;
