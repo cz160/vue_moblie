@@ -21,7 +21,7 @@ export default {
     },
     created(){
         this.$http({
-            url:`/home/jobs/search?p=1`,
+            url:`/app/jobs/search?p=1`,
         }).then(res=>{
             this.jobs=res;
         })

@@ -8,11 +8,11 @@ module.exports = {
     devServer:{
         port:3333,
         proxy:{
-            '/home':{
+            '/app':{
                 target: 'https://wap.xiaobaishixi.com/',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/home': ''
+                    '^/app': ''
                 }
             }
         }

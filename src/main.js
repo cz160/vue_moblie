@@ -6,11 +6,16 @@ import App from './App.vue'
 //flexible 移动端适配
 import '@libs/flexible'
 import './libs'
+
+//router路由
+import router from './router'
+
 //阻止vue的提示
 Vue.config.productionTip = false
 
 //根实例
 new Vue({
+  router,// 从此任何组件都可以使用到$router （路由工具） ,$route (路由属性)
   render: h => h(App)
 }).$mount('#app')
 //                            _ooOoo_
