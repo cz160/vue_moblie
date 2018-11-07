@@ -6,12 +6,8 @@ Vue.use(VueRouter)
 //页面路由配置
 import AppHome from '@pages/home/AppHome'
 import AppMine from '@pages/mine/AppMine'
-<<<<<<< HEAD
-import AppXbs from '@pages/xbs/AppXbs'
-=======
 import AppCenter from '@pages/center/AppCenter'
 
->>>>>>> 02beefc0c2c3f58a0e4b0ec360df0ccd4f8aa18b
 
 //路由表
 const routes = [
