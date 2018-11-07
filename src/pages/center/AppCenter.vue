@@ -48,8 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
+.center{
     .s-header{
-        width: 100%;
         height: 1.866667rem;
         background: #fff;
         padding: .453333rem .4rem;
@@ -108,5 +108,6 @@ export default {
             
         } 
     }
+}
 </style>
 

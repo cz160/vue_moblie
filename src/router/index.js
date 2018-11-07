@@ -5,10 +5,8 @@ Vue.use(VueRouter)
 
 //页面路由配置
 import AppHome from '@pages/home/AppHome'
-import AppMine from '@pages/mine/AppMine'
+import AppXbs from '@pages/xbs/AppXbs'
 import AppCenter from '@pages/center/AppCenter'
-
-
 //路由表
 const routes = [
     {
@@ -17,11 +15,6 @@ const routes = [
         component:AppHome,
         alias: '/'
 
-    },
-    {
-        path:'/mine',
-        name:'mine',
-        component:AppMine
     },
     {
         path:'/xbs',

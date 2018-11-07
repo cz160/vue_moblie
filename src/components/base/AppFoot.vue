@@ -4,7 +4,7 @@
             <router-link to="/home" class="active home">首页</router-link>
             <router-link to="home" class="job">职位</router-link>
             <router-link to="xbs" class="xbs">小白说</router-link>
-            <router-link to="/mine"  class="mine">我的</router-link>
+            <router-link to="/center"  class="mine">我的</router-link>
         </div>
     </div>
    
