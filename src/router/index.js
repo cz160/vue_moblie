@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import AppHome from '@pages/home/AppHome'
 import AppMine from '@pages/mine/AppMine'
+import AppXbs from '@pages/xbs/AppXbs'
 
 //路由表
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
         path:'/mine',
         name:'mine',
         component:AppMine
+    },
+    {
+        path:'/xbs',
+        name:'xbs',
+        component:AppXbs
 
     }
 ]

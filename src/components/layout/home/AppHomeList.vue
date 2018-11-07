@@ -17,14 +17,21 @@ export default {
     data(){
        return {
            jobs:[],
+           p:0
        } 
     },
     created(){
-        this.$http({
-            url:`/app/jobs/search?p=1`,
-        }).then(res=>{
-            this.jobs=res;
-        })
+       this.add()
+    },
+    methods:{
+        add(){
+            this.p++;
+            this.$http({
+                url:`/app/jobs/search?p=${this.p}`,
+                }).then(res=>{
+                    this.jobs.push(...res);
+                })
+            }
     }
 };
 </script>
