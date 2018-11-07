@@ -16,7 +16,7 @@ export default {
       return{
           foot:[
               {id:0,path:'/home',title:'首页'},
-              {id:1,path:'/home',title:'职位'},
+              {id:1,path:'/job',title:'职位'},
               {id:2,path:'/xbs',title:'小白说'},
               {id:3,path:'/center',title:'我的'},
           ],

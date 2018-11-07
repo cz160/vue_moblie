@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 import AppHome from '@pages/home/AppHome'
 import AppCenter from '@pages/center/AppCenter'
 import AppXbs from '@pages/xbs/AppXbs'
+import AppJob from '@pages/job/AppJob'
 
 //路由表
 const routes = [
