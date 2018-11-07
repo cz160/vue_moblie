@@ -26,6 +26,12 @@ const routes = [
         name:'xbs',
         component:AppXbs
 
+    },
+    {
+        path:'/job',
+        name:'job',
+        component:AppJob
+
     }
 ]
 //路由工具
