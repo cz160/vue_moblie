@@ -3,32 +3,30 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-//页面路由配置
 import AppHome from '@pages/home/AppHome'
-import AppXbs from '@pages/xbs/AppXbs'
 import AppCenter from '@pages/center/AppCenter'
+import AppXbs from '@pages/xbs/AppXbs'
+
 //路由表
 const routes = [
     {
         path:'/home',
         name:'home',
         component:AppHome,
-        alias: '/'
+        alias: '/'  //设置别名，当访问/相当于访问/home
 
+    },
+    {
+        path:'/center',
+        name:'center',
+        component:AppCenter
     },
     {
         path:'/xbs',
         name:'xbs',
         component:AppXbs
 
-    },
-    {
-        path:'/center',
-        name:'center',
-        component:AppCenter,
-        //alias: '/'
-
-    },
+    }
 ]
 //路由工具
 const router = new VueRouter({

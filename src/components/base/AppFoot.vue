@@ -1,17 +1,34 @@
 <template>
     <div>
         <div class="foot">
-            <router-link to="/home" class="active home">首页</router-link>
-            <router-link to="home" class="job">职位</router-link>
-            <router-link to="xbs" class="xbs">小白说</router-link>
-            <router-link to="/center"  class="mine">我的</router-link>
+            <router-link tag="a" v-for="(item,i) in foot" 
+            :key="item.id"
+            :to="item.path"
+            :class="{active:i==current}"
+            >{{item.title}}</router-link>
         </div>
     </div>
    
 </template>
 <script>
 export default {
-    
+    data(){
+      return{
+          foot:[
+              {id:0,path:'/home',title:'首页'},
+              {id:1,path:'/home',title:'职位'},
+              {id:2,path:'/xbs',title:'小白说'},
+              {id:3,path:'/center',title:'我的'},
+          ],
+          current:0
+      }
+    },
+    method:{
+        change(val){
+            this.current=val;
+            console.log(this.current)
+        }
+    }
 };
 </script>
 <style lang="scss">
@@ -33,7 +50,7 @@ export default {
     line-height: 1.306667rem;
   }
   .active {
-    color: #333;
+    color: skyblue;
   }
 }
 </style>
