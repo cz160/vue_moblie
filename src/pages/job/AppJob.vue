@@ -10,7 +10,7 @@
 </template>
 <script>
   import AppJobHeader from '@c/base/AppJobHeader'
-  import AppJobList from '@c/layout/home/AppHomeList'
+  import AppJobList from '@c/layout/job/AppJobList'
 
   export default {
     //注册组件
@@ -42,9 +42,11 @@
   li{
     list-style: none;
   }
-  .job-o{
-    box-shadow: 0 0 2px 2px #23c3ff;
+  .content-parent{
+
   }
+
+
 
 
 
