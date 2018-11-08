@@ -6,7 +6,7 @@
     <!-- 头部图片 -->
     <div class="s-header">
       <div class="logo">
-        <img src="https://xbimg.xiaobaishixi.com/FD/D7/FD741CA795B754CF87FDE3DB1A617CD7.png" alt="">
+        <img :src="log_url" alt="">
       </div>           
     </div>
     <!-- 职位介绍 -->
@@ -16,14 +16,14 @@
                 <span class="post">{{name}}</span>
             </div>
             <div class="job-time">
-                <span>一小时前</span>
+                <span>{{pub_time}}</span>
             </div>               
       </div>
             <div class="job-good">
                 <a>发展前景好，学习机会多，办公环境好</a>
             </div>
             <div class="job-require">
-                <span>北京</span>
+                <span>{{city}}</span>
                 <span>本科</span>
                 <span>4天/周</span>
                 <span>面议</span>
@@ -31,7 +31,7 @@
             </div>
             <div class="job-company">
                 <a class="company-name">
-                    <p>滴滴出行</p>
+                    <p>{{company_name}}</p>
                     <p>None</p>
                 </a>
             </div>
@@ -123,6 +123,7 @@
 <script>
 //import AppDetailFoot from "@c/layout/detail/AppDetailFoot";
 export default {
+  props:['id'],
   data(){
     return {
       log_url:"https://xbimg.xiaobaishixi.com/FC/BD/FCC32665A730906176723F989BB367BD.png",
@@ -132,18 +133,12 @@ export default {
       pub_time:"29分钟前"
     }
   },
-  created(){
-    // console.log(id);
-    this.$router.beforeEach((to, from, next) => {
-            // this.title =this.createTitle(to)
-            // console.log(to.params);
-            //console.log('router change')
-            console.log(to,from)
-            let _query=to.query;
-            console.log(_query)
-            this.name=_query.name;
-            next()
-        })
+  mounted(){
+    this.name=this.$route.query.name
+    this.pub_time=this.$route.query.pub_time
+    this.log_url=this.$route.query.log_url
+    this.city=this.$route.query.city
+    this.company_namel=this.$route.query.company_name
   }
 };
 </script>
