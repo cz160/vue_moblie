@@ -14,7 +14,7 @@
                 <div class="login-btn">立即登录</div>
                 <div class="bottom">
                     <span class="forget-pwd">忘记密码</span>
-                    <span class="register">点我注册</span>
+                    <router-link :to="{name:'register'}" class="register" tag="span">点我注册</router-link>
                 </div>
             </div>
             <div class="login_ico">
@@ -45,10 +45,8 @@ export default {
 <style lang="scss">
     .login-content{
         width: 100%;
-        height: 16.72rem;
         .login-box{
             width: 100%;
-            min-height: 100%;
             position: relative;
             overflow: hidden;
             .logo{

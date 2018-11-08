@@ -44,9 +44,9 @@
   li{
     list-style: none;
   }
-  .content-parent{
+  // .content-parent{
 
-  }
+  // }
 
 
 

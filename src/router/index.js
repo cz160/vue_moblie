@@ -8,6 +8,7 @@ import AppCenter from '@pages/center/AppCenter'
 import AppXbs from '@pages/xbs/AppXbs'
 import AppJob from '@pages/job/AppJob'
 import AppLogin from '@pages/login/AppLogin'
+import AppRegister from '@pages/register/AppRegister'
 
 //路由表
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
         path:'/login',
         name:'login',
         component:AppLogin
+    },
+    {
+        path:'/register',
+        name:'register',
+        component:AppRegister
     },
     {
         path:'/xbs',
