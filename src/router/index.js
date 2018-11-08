@@ -29,7 +29,8 @@ const routes = [
     {
         path:'/detail/:id',
         name:'detail',
-        component:AppDetail
+        component:AppDetail,
+        props: true
     },
     {
         path:'/center/text',
