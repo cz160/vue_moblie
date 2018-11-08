@@ -6,12 +6,12 @@
             </div>
             <div class="input-wrap">
                 <div class="m-top">
-                    <input type="text" placeholder="手机号/邮箱">
+                    <input type="text" placeholder="手机号/邮箱" v-model="username">
                 </div>
                 <div class="m-pwd">
-                    <input type="password" placeholder="密码">
+                    <input type="password" placeholder="密码" v-model="password">
                 </div>
-                <div class="login-btn">立即登录</div>
+                <div class="login-btn" @click="login">立即登录</div>
                 <div class="bottom">
                     <span class="forget-pwd">忘记密码</span>
                     <router-link :to="{name:'register'}" class="register" tag="span">点我注册</router-link>
@@ -39,7 +39,22 @@
 </template>
 <script>
 export default {
-    
+    data(){
+        return{
+            username:'',
+            password:''
+        }
+    },
+    methods:{
+        login(){
+            var info = JSON.parse(localStorage.getItem('info'));
+            if(this.username==info.user && this.password==info.password){
+                this.$router.replace({name:'center'}) //替换路由
+            }else{
+                alert('账号或者密码有误')
+            }
+        }
+    } 
 }
 </script>
 <style lang="scss">

@@ -25,9 +25,8 @@ const routes = [
         component:AppCenter,
         //组件内的守卫
         beforeEnter:(to,from,next)=>{
-            console.log(to,from)
-            let info =JSON.parse(localStorage.getItem('userInfo'))||{}
-            next(info=={}?true:{name:'login'})
+            let info =JSON.parse(localStorage.getItem('info'))
+            next(info?true:{name:'login'})
         }
     },
     {

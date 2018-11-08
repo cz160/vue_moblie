@@ -24,7 +24,7 @@
             </ul>
             <ul class=" s-public">
                 <li class="s-massage">
-                    <a>退出登录</a>
+                    <a @click="exit">退出登录</a>
                 </li>
             </ul>
         </div>
@@ -47,6 +47,13 @@ export default {
                 {id:3,title:'我的简历'},
                 {id:4,title:'我要测评'}
             ]
+        }
+    },
+    methods:{
+        exit(){
+            alert('是否退出登录')
+            localStorage.removeItem('info');
+            this.$router.replace({name:'login'}) //替换路由
         }
     }
 }

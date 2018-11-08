@@ -5,16 +5,16 @@
         </div>
         <form class="input-wrap register-wrap phone-register-wrap">
             <div class="input-row">
-                <input type="text" placeholder="请输入手机号">
+                <input type="text" placeholder="请输入手机号"  v-model = "phone">
             </div>
              <div class="input-row">
-                <input type="password" placeholder="密码长度6-16位">
+                <input type="password" placeholder="密码长度6-16位" v-model = "password">
             </div>
             <div class="input-row yzm-row">
-                <input type="text" placeholder="请输入验证码">
-                <span class="phone-code">获取验证码</span>
+                <input type="text" placeholder="请输入验证码" v-model="code">
+                <span class="phone-code" :class="{bg :phone.length==11}" @click="isCodeShow==false?sendCode():''">{{isResend ? '重发('+resendTime+'s)' : '获取验证码'}}</span>
             </div>
-            <div class="register-btn">同意并注册</div>
+            <div class="register-btn" @click="res">同意并注册</div>
             <p class="p1">注册代表您已经同意《小白实习服务条款》</p>
             <div class="p2">
                 <span>已有账号，</span>
@@ -25,7 +25,56 @@
 </template>
 <script>
 export default {
-      
+    data(){
+        return{
+            resendTime:60,
+            code:'',
+            isResend: false,   
+            isCodeShow:false,   //防止用户多次点击
+            phone:'',
+            password:''
+        }
+    },
+    methods:{
+        async sendCode(){
+            if(!this.isResend){  //发送验证码
+                var res = await this.$http({
+                    url: '/mz/v4/api/code',
+                    method: 'POST',
+                    data: {
+                        mobile: this.phone,
+                        type: "2"
+                    }
+                })
+            }
+            if(res == 'ok'){  //验证码发送从成功
+                this.authCode()
+            }
+        },
+        authCode(){   //验证码处理
+            this.isCodeShow=true
+            this.isResend=true;
+            this.timer=setInterval(()=>{
+                this.resendTime--
+                if(this.resendTime==0){
+                    clearInterval(this.timer)
+                    this.resendTime=60
+                    this.isResend=false
+                    this.isCodeShow=false;
+                }
+            },1000)
+        },
+        res(){
+            if(this.phone.length==11 && this.password.length>=6 ){
+                var obj={"user":this.phone,"password":this.password}
+                localStorage.setItem("info",JSON.stringify(obj))
+                // console.log(this.$router)
+                this.$router.replace({name:'login'}) //替换路由
+            }else{
+                alert('账号或者密码格式有问题')
+            }
+        }
+    },
 }
 </script>
 
@@ -82,6 +131,9 @@ export default {
                     right: 0;
                     bottom: 0;
                }
+               .bg{
+                    background-color: #ffd000;
+                }
             }
             .register-btn{
                 height: 1.2rem;
@@ -89,10 +141,10 @@ export default {
                 font-size: .426667rem;
                 text-align: center;
                 color: #333;
-                background-color: #ffd000;
                 border-radius: .133333rem;
                 width: 40%;
                 margin: 1.066667rem auto 0;
+                background-color: #ffd000;
             }
             .p1{
                 color: #dbdbdb;
