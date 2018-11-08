@@ -7,6 +7,7 @@ import AppHome from '@pages/home/AppHome'
 import AppCenter from '@pages/center/AppCenter'
 import AppXbs from '@pages/xbs/AppXbs'
 import AppJob from '@pages/job/AppJob'
+import AppLogin from '@pages/login/AppLogin'
 
 //路由表
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
         path:'/center',
         name:'center',
         component:AppCenter
+    },
+    {
+        path:'/login',
+        name:'login',
+        component:AppLogin
     },
     {
         path:'/xbs',
