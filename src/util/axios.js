@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const ajax = (Options)=>{
+const ajax = (Options,all)=>{
     return axios(Options)
             .then(res=>{
-                return res.data.msg;
+                return all?res:res.data.msg;
             }).catch(err=>{
                 return err;
             })

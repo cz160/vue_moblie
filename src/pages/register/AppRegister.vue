@@ -64,14 +64,21 @@ export default {
                 }
             },1000)
         },
-        res(){
-            if(this.phone.length==11 && this.password.length>=6 ){
-                var obj={"user":this.phone,"password":this.password}
-                localStorage.setItem("info",JSON.stringify(obj))
-                // console.log(this.$router)
-                this.$router.replace({name:'login'}) //替换路由
-            }else{
-                alert('账号或者密码格式有问题')
+        async res(){
+            let res = await this.$http({
+                url: '/mz/v4/api/login',
+                method: 'POST',
+                data: {
+                    loginType: 1,
+                    password: this.code,
+                    username: this.phone
+                }
+            },true)
+            if(res.data.status !==0 ){  //验证码发送成功
+                //存储
+                var obj = {user:this.phone,password:this.password}
+                localStorage.setItem('info',JSON.stringify(obj))
+                this.$router.replace({name: 'login'})
             }
         }
     },
