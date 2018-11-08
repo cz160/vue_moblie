@@ -6,10 +6,10 @@
                 <img src="https://xbimg.xiaobaishixi.com/static/img/default/default_headpic.png" alt="">
             </div>
             <div class="s-right">
-                <a>
+                <router-link to="/center/text" >
                     <img src="http://wap.xiaobaishixi.com/static/img/rar/test_wait.png" alt="">
-                </a>
-                <span>心成长的高度，就是将来的成就</span>
+                </router-link>
+                <span>世界以痛吻我，我亦报之以歌</span>
             </div>
         </div>
         <div class="s-list">
@@ -28,12 +28,19 @@
                 </li>
             </ul>
         </div>
+        <app-foot></app-foot>
     </div>
 </template>
 
 
 <script>
+import AppFoot from '../../components/base/AppFoot'
 export default {
+    components:{
+        // AppBanner,
+        // AppHomeList,
+        AppFoot
+    },
     data(){
         return {
             message:[
@@ -49,7 +56,7 @@ export default {
 
 <style lang="scss">
     .s-header{
-        width: 100%;
+        //width: 100%;
         height: 1.866667rem;
         background: #fff;
         padding: .453333rem .4rem;
@@ -82,18 +89,15 @@ export default {
                 margin-top: .24rem;
                 font-size: .346667rem;
                 color: #95a0a8;
-            }
-            
-        }
-        
+            }            
+        }       
     }
     .s-list{
         .s-title{
             height: 4.96rem;
         }
         .s-public{
-            width: 100%;
-            
+            width: 100%;           
             margin-top: .4rem;
             background: #fff;
             .s-massage{
@@ -104,8 +108,7 @@ export default {
                 font-size: .426667rem;
                 color: #333;
                 border-bottom: solid 1px #eaeaea;
-            }
-            
+            }           
         } 
     }
 </style>

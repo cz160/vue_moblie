@@ -7,7 +7,8 @@ Vue.use(VueRouter)
 import AppHome from '@pages/home/AppHome'
 import AppMine from '@pages/mine/AppMine'
 import AppCenter from '@pages/center/AppCenter'
-
+import AppDetail from '@pages/details/AppDetail'
+import AppCenterText from '@pages/center/AppCenterText'
 
 //路由表
 const routes = [
@@ -27,10 +28,18 @@ const routes = [
     {
         path:'/center',
         name:'center',
-        component:AppCenter,
-        //alias: '/'
-
+        component:AppCenter
     },
+    {
+        path:'/detail/:id',
+        name:'detail',
+        component:AppDetail
+    },
+    {
+        path:'/center/text',
+        name:'text',
+        component:AppCenterText
+    }
 ]
 //路由工具
 const router = new VueRouter({
