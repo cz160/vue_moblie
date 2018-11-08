@@ -30,7 +30,7 @@ const routes = [
         path:'/detail/:id',
         name:'detail',
         component:AppDetail,
-        props: true
+        // props: true
     },
     {
         path:'/center/text',
