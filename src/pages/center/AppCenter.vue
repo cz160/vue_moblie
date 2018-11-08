@@ -28,12 +28,17 @@
                 </li>
             </ul>
         </div>
+        <app-foot></app-foot>
     </div>
 </template>
 
 
 <script>
+import AppFoot from '@c/base/AppFoot'
 export default {
+    components:{
+        AppFoot
+    },
     data(){
         return {
             message:[

@@ -21,7 +21,13 @@ const routes = [
     {
         path:'/center',
         name:'center',
-        component:AppCenter
+        component:AppCenter,
+        //组件内的守卫
+        beforeEnter:(to,from,next)=>{
+            console.log(to,from)
+            let info =JSON.parse(localStorage.getItem('userInfo'))||{}
+            next(info=={}?true:{name:'login'})
+        }
     },
     {
         path:'/login',

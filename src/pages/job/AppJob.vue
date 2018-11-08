@@ -6,17 +6,19 @@
     <main>
       <app-job-list></app-job-list>
     </main>
+    <app-foot></app-foot>
   </section>
 </template>
 <script>
   import AppJobHeader from '@c/base/AppJobHeader'
   import AppJobList from '@c/layout/job/AppJobList'
-
+  import AppFoot from '@c/base/AppFoot'
   export default {
     //注册组件
     components: {
       AppJobHeader,
-      AppJobList
+      AppJobList,
+      AppFoot
     },
     data() {
       return {
