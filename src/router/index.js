@@ -3,12 +3,14 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-//页面路由配置
 import AppHome from '@pages/home/AppHome'
-import AppMine from '@pages/mine/AppMine'
 import AppCenter from '@pages/center/AppCenter'
 import AppDetail from '@pages/details/AppDetail'
 import AppCenterText from '@pages/center/AppCenterText'
+import AppXbs from '@pages/xbs/AppXbs'
+import AppJob from '@pages/job/AppJob'
+import AppLogin from '@pages/login/AppLogin'
+import AppRegister from '@pages/register/AppRegister'
 
 //路由表
 const routes = [
@@ -16,13 +18,7 @@ const routes = [
         path:'/home',
         name:'home',
         component:AppHome,
-        alias: '/'
-
-    },
-    {
-        path:'/mine',
-        name:'mine',
-        component:AppMine
+        alias: '/'  //设置别名，当访问/相当于访问/home
 
     },
     {
@@ -38,7 +34,34 @@ const routes = [
     {
         path:'/center/text',
         name:'text',
-        component:AppCenterText
+        component:AppCenterText,
+        //组件内的守卫
+        beforeEnter:(to,from,next)=>{
+            let info =JSON.parse(localStorage.getItem('info'))
+            next(info?true:{name:'login'})
+        }
+    },
+    {
+        path:'/login',
+        name:'login',
+        component:AppLogin
+    },
+    {
+        path:'/register',
+        name:'register',
+        component:AppRegister
+    },
+    {
+        path:'/xbs',
+        name:'xbs',
+        component:AppXbs
+
+    },
+    {
+        path:'/job',
+        name:'job',
+        component:AppJob
+
     }
 ]
 //路由工具

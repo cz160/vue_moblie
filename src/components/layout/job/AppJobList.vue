@@ -1,49 +1,42 @@
 <template>
-        <div class="content-parent">
+        <div class="job-content-parent">
             <div class="content">
                 <ul class="list-box">
-                    <app-home-item v-for="item in jobs" :key="item.id" :job="item"></app-home-item>
+                    <app-job-item v-for="item in jobs" :key="item.id" :job="item"></app-job-item>
                 </ul>
-                <a class="more-list">前往职位列表，查看更多职位&gt;&gt;</a>
+                <div class="more-list">正在加载...</div>
             </div>
         </div>
 </template>
 <script>
-import AppHomeItem from './AppHomeItem'
+import AppJobItem from './AppJobItem'
 export default {
     components:{
-        AppHomeItem
+      AppJobItem
     },
     data(){
        return {
            jobs:[],
-           p:0
        } 
     },
     created(){
-       this.add()
-    },
-    methods:{
-        add(){
-            this.p++;
-            this.$http({
-                url:`/app/jobs/search?p=${this.p}`,
-                }).then(res=>{
-                    this.jobs.push(...res);
-                })
-            }
+        this.$http({
+            url:`/app/jobs/search?p=1`,
+        }).then(res=>{
+            this.jobs=res;
+        })
     }
 };
 </script>
 <style lang="scss">
-.content-parent {
-  position: absolute;
-  top: 6.4rem;
+.job-content-parent {
+  position: relative;
+  top: 1.333333rem;
+
   bottom: 1.333333rem;
   width: 100%;
   overflow: auto;
   .content {
-    margin-top: 0.266667rem;
     background: #fff;
     .list-box {
       padding: 0.186667rem 0.466667rem 0;
@@ -70,6 +63,10 @@ export default {
               p:first-child{
                   font-size: .426667rem;
                   color: #5a647a;
+                margin-bottom: .533333rem;
+              }
+              p:last-child{
+                font-size: .346667rem!important;
               }
             }
           }

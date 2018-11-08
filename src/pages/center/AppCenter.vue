@@ -24,7 +24,7 @@
             </ul>
             <ul class=" s-public">
                 <li class="s-massage">
-                    <a>退出登录</a>
+                    <a @click="exit">退出登录</a>
                 </li>
             </ul>
         </div>
@@ -34,11 +34,9 @@
 
 
 <script>
-import AppFoot from '../../components/base/AppFoot'
+import AppFoot from '@c/base/AppFoot'
 export default {
     components:{
-        // AppBanner,
-        // AppHomeList,
         AppFoot
     },
     data(){
@@ -50,13 +48,20 @@ export default {
                 {id:4,title:'我要测评'}
             ]
         }
+    },
+    methods:{
+        exit(){
+            alert('是否退出登录')
+            localStorage.removeItem('info');
+            this.$router.replace({name:'login'}) //替换路由
+        }
     }
 }
 </script>
 
 <style lang="scss">
+.center{
     .s-header{
-        //width: 100%;
         height: 1.866667rem;
         background: #fff;
         padding: .453333rem .4rem;
@@ -111,5 +116,6 @@ export default {
             }           
         } 
     }
+}
 </style>
 
