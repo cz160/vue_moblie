@@ -5,6 +5,8 @@ Vue.use(VueRouter)
 
 import AppHome from '@pages/home/AppHome'
 import AppCenter from '@pages/center/AppCenter'
+import AppDetail from '@pages/details/AppDetail'
+import AppCenterText from '@pages/center/AppCenterText'
 import AppXbs from '@pages/xbs/AppXbs'
 import AppJob from '@pages/job/AppJob'
 import AppLogin from '@pages/login/AppLogin'
@@ -22,7 +24,18 @@ const routes = [
     {
         path:'/center',
         name:'center',
-        component:AppCenter,
+        component:AppCenter
+    },
+    {
+        path:'/detail/:id',
+        name:'detail',
+        component:AppDetail,
+        props: true
+    },
+    {
+        path:'/center/text',
+        name:'text',
+        component:AppCenterText,
         //组件内的守卫
         beforeEnter:(to,from,next)=>{
             let info =JSON.parse(localStorage.getItem('info'))
