@@ -6,7 +6,6 @@ import App from './App.vue'
 //flexible 移动端适配
 import '@libs/flexible'
 import './libs'
-
 //router路由
 import router from './router'
 

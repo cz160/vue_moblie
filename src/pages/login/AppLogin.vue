@@ -38,6 +38,8 @@
     </div>    
 </template>
 <script>
+//提示框效果组件
+import { Toast } from 'mint-ui';
 export default {
     data(){
         return{
@@ -47,11 +49,11 @@ export default {
     },
     methods:{
         login(){
-            var info = JSON.parse(localStorage.getItem('info'));
+            var info = JSON.parse(localStorage.getItem('info')?localStorage.getItem('info'):JSON.stringify({user:'',password:""}))
             if(this.username==info.user && this.password==info.password){
                 this.$router.replace({name:'center'}) //替换路由
             }else{
-                alert('账号或者密码有误')
+               Toast("用户名或者密码有误");
             }
         }
     } 

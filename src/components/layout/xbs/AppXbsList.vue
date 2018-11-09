@@ -9,6 +9,7 @@
 </template>
 <script>
 import AppXbsItem from '@c/layout/xbs/AppXbsItem'
+import { Indicator } from 'mint-ui';
 export default {
     props:['url'],
     components:{
@@ -35,6 +36,10 @@ export default {
     },
     methods:{
         async loadmore(){
+            Indicator.open({
+                 text: '疯狂加载中...',
+                 spinnerType: 'triple-bounce'
+            });
             if(!this.more) return false;
             let result= await this.$http({
                 //根据中间父组件传入的参数进行数据请求(请求地址只有this,url不同)
@@ -48,6 +53,7 @@ export default {
                  this.p++;
             }
             this.lists=this.lists.concat(result);
+             Indicator.close();
         }
     }
 }

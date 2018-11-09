@@ -10,6 +10,7 @@
 </template>
 <script>
 import AppJobItem from './AppJobItem'
+import { Indicator } from 'mint-ui';
 export default {
     components:{
       AppJobItem
@@ -20,10 +21,12 @@ export default {
        } 
     },
     created(){
+        Indicator.open('加载中...');
         this.$http({
             url:`/app/jobs/search?p=1`,
         }).then(res=>{
             this.jobs=res;
+            Indicator.close();
         })
     }
 };
@@ -32,11 +35,11 @@ export default {
 .job-content-parent {
   position: relative;
   top: 1.333333rem;
-
   bottom: 1.333333rem;
   width: 100%;
   overflow: auto;
   .content {
+    height: 100%;  
     background: #fff;
     .list-box {
       padding: 0.186667rem 0.466667rem 0;

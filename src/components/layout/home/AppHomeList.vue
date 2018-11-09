@@ -10,6 +10,7 @@
 </template>
 <script>
 import AppHomeItem from './AppHomeItem'
+import { Indicator } from 'mint-ui';
 export default {
     components:{
         AppHomeItem
@@ -25,11 +26,17 @@ export default {
     },
     methods:{
         add(){
+            //加载数据前
+            Indicator.open({
+                text: '加载中...',
+                spinnerType: 'triple-bounce'
+            });
             this.p++;
             this.$http({
                 url:`/app/jobs/search?p=${this.p}`,
                 }).then(res=>{
                     this.jobs.push(...res);
+                    Indicator.close();
                 })
             }
     }
