@@ -5,7 +5,6 @@
             <div class="collection-left"  
             v-for="item in types" :key="item.id"
             @click="type=item.type"
-              :class="{choosing:item.type === type}"
             >
                 <p>{{item.name}}</p>
             </div>

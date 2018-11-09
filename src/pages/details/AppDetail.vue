@@ -132,7 +132,6 @@ export default {
       this.log_url=this.$route.query.log_url
       this.city=this.$route.query.city
       this.company_namel=this.$route.query.company_name
-      console.log(this.$route.query)
   }
     // console.log(this)
     // console.log(this.$route)
