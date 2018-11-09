@@ -1,18 +1,53 @@
 
 <template>
     <div class="ccc">
-        <div class="introduce">
-            <p>实习动画师</p>
-            <span class="left">原理动画</span>
-            <span class="right">30-60/天</span>
-        </div>
+        <router-link tag="div" :to="{name:'detail'}"  v-if="messages && type=='position'">
+            <div  class="introduce" v-for="item in messages" :key="item.id">
+                <p>{{item.name}}</p>
+                <span class="left">{{item.company_name}}</span>
+                <span class="right">{{item.minsalary}}-{{item.maxsalary}}</span>
+                <!-- <span class="right">薪资面议</span> -->
+            </div>
+        </router-link>
         
+        <div v-else>
+            <img src="https://xbimg.xiaobaishixi.com/static/wap/img/no-data2.png?v=ea8197c81de2507c5e3e60b75d1ac788" alt="">
+        </div>
     </div>
 </template>
 
 <script>
+//import AppDetailFooter from '@c/layout/detail/AppDetailFooter'
 export default {
-    
+    props:['type'],
+    data(){
+        return {
+          //  time:'/天',
+            messages : null
+            // messages:[
+            //     {id:1,name:'设计师'},
+            //     {id:2,company_name:'原理动画'},
+            //     {id:3,minsalary:30},
+            //     {id:4,maxsalary:60}
+            // ]
+            // name:'设计师',
+            // company_name:'原理动画',
+            // minsalary:30,
+            // maxsalary:60
+        }
+    },
+    created(){
+        
+        var d=localStorage.getItem("data");      
+        this.messages = JSON.parse(d)
+
+
+        // this.messages.name=message.name
+        // this.messages.company_name=message.company_name
+        // this.messages.minsalary=message.minsalary
+        // this.messages.maxsalary=message.maxsalary
+       // console.log(this.messages)
+    }
 }
 </script>
 
@@ -24,6 +59,10 @@ export default {
     bottom: 0;
     overflow: auto;
     background-color: #FFF;
+    img{
+        text-align: center;
+        vertical-align: middle;
+    }
 }
 .introduce{
     position: relative;

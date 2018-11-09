@@ -5,6 +5,7 @@
             <div class="collection-left"  
             v-for="item in types" :key="item.id"
             @click="type=item.type"
+            :class = "{choosing: item.type === type}"
             >
                 <p>{{item.name}}</p>
             </div>
@@ -12,13 +13,14 @@
                 <p>公司收藏</p>
             </div> -->
         </div>
-        <app-collection-list></app-collection-list>
+        <app-collection-list :type="type"></app-collection-list>
     </div>
 </template>
 
 <script>
 import AppCollectionList from '@c/layout/collection/AppCollectionList'
 export default {
+    props:['url'],
     components:{
         AppCollectionList
     },
@@ -27,7 +29,9 @@ export default {
             types:[
                 {id:1,name:'职位收藏',type:'position'},
                 {id:2,name:'公司收藏',type:'company'}
-            ]
+            ],
+            type:this.url ||'position',
+            isBackShow:false,
            
         }
     }
@@ -49,9 +53,8 @@ export default {
         .collection-left,.collection-right{
             width: 50%;
         }
-       &.choosing {
-                color: #fe6e00;
-           
+       .choosing {
+            background: #ffd000;      
         }
     }
 }

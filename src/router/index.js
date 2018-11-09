@@ -69,7 +69,7 @@ const routes = [
         path:'/collection',
         name:'collection',
         component:AppCollection,
-       // props:true
+        props:true
 
     }
 ]

@@ -3,8 +3,8 @@
 <template>
     <div class="s-footer">
         <div class="footer-last">
-            <div class="collect" >
-                    <img src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt="">              
+            <div class="collect" @click="getmessage">
+                    <img src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt="">             
                 <a>
                     <p>收藏</p>
                     <!-- <a><p>已收藏</p></a> -->
@@ -34,6 +34,24 @@ export default {
         return {
             isshow:false
         }
+    },
+    methods:{
+        getmessage(){
+            var storage=window.localStorage
+            var results=this.$route.query;
+            var a=storage.getItem("data")
+            console.log(a)
+            if(a){
+                a=JSON.parse(a) 
+                a.push(results)
+                storage.setItem('data',JSON.stringify(a) )
+            }else{
+                storage.setItem('data',JSON.stringify([results]) )
+            }
+            
+            
+        }
+
     }
 }
 </script>
@@ -70,6 +88,7 @@ export default {
             color: #333;
             font-size: .373333rem;
         }
+        
     }
 
 </style>
