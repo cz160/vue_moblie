@@ -25,7 +25,12 @@ const routes = [
     {
         path:'/center',
         name:'center',
-        component:AppCenter
+        component:AppCenter,
+        //组件内的守卫
+        beforeEnter:(to,from,next)=>{
+            let info =JSON.parse(localStorage.getItem('info'))
+            next(info?true:{name:'login'})
+        }
     },
     {
         path:'/detail/:id',
@@ -37,11 +42,6 @@ const routes = [
         path:'/center/text',
         name:'text',
         component:AppCenterText,
-        //组件内的守卫
-        beforeEnter:(to,from,next)=>{
-            let info =JSON.parse(localStorage.getItem('info'))
-            next(info?true:{name:'login'})
-        }
     },
     {
         path:'/login',
