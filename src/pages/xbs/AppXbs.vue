@@ -16,15 +16,18 @@
                 <app-xbs-list :url="url"></app-xbs-list>
             </div>
         </div>
+        <app-foot></app-foot>
     </div>
 </template>
 <script>
 import AppBanner from '@c/base/AppBanner'
 import AppXbsList from '@c/layout/xbs/AppXbsList'
+import AppFoot from '@c/base/AppFoot'
 export default {
     components:{
         AppBanner,
-        AppXbsList
+        AppXbsList,
+        AppFoot
     },
     data(){
         return {

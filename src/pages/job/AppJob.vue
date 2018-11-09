@@ -6,6 +6,7 @@
     <main class="jobList">
       <app-job-list></app-job-list>
     </main>
+    <app-foot></app-foot>
   </section>
 </template>
 <script>
@@ -13,11 +14,13 @@
   import AppJobList from '@c/layout/job/AppJobList'
   import fontAweSome from '../../../public/font-awesome/css/font-awesome.css'
 
+  import AppFoot from '@c/base/AppFoot'
   export default {
     //注册组件
     components: {
       AppJobHeader,
-      AppJobList
+      AppJobList,
+      AppFoot
     },
     data() {
       return {

@@ -16,10 +16,17 @@
   </div>
 </template>
 <script>
+<<<<<<< HEAD
   import AppJobItem from './AppJobItem'
 
   export default {
     components: {
+=======
+import AppJobItem from './AppJobItem'
+import { Indicator } from 'mint-ui';
+export default {
+    components:{
+>>>>>>> master
       AppJobItem
     },
     data() {
@@ -93,6 +100,13 @@
           url: `/app/jobs/search?p=${this.search}`,
         }).then(res => {
             this.jobs = this.jobs.concat(res);
+    created(){
+        Indicator.open('加载中...');
+        this.$http({
+            url:`/app/jobs/search?p=1`,
+        }).then(res=>{
+            this.jobs=res;
+            Indicator.close();
         })
       }
     },

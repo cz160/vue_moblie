@@ -1,10 +1,9 @@
 <template>
     <div>
         <div class="foot">
-            <router-link tag="a" v-for="(item,i) in foot" 
+            <router-link tag="a" v-for="item in foot" 
             :key="item.id"
             :to="item.path"
-            :class="{active:i==current}"
             >{{item.title}}</router-link>
         </div>
     </div>
@@ -49,7 +48,8 @@ export default {
     text-align: center;
     line-height: 1.306667rem;
   }
-  .active {
+  .router-link-active {
+    /*路由切换后被选中的路由默认有这个类名*/
     color: skyblue;
   }
 }

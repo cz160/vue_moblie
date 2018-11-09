@@ -12,16 +12,19 @@
             </div>
             <app-home-list></app-home-list>
         </main>
+        <app-foot></app-foot>
     </section>
 </template>
 <script>
 import AppBanner from '@c/base/AppBanner'
 import AppHomeList from '@c/layout/home/AppHomeList'
+import AppFoot from '@c/base/AppFoot'
 export default {
     //注册组件
     components:{
         AppBanner,
-        AppHomeList
+        AppHomeList,
+        AppFoot
     },
     data(){
         return {

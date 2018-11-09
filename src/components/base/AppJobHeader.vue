@@ -5,6 +5,7 @@
         <ul :class="{ show: isShow }">
           <li v-for="(header, index) in headerNavOnes"
               @click="addClass(index,'one')"
+              :key="index"
               :class="{ selected: index ===  currentOne}"
           >{{header.text}}</li>
           <li @click="isShow = !isShow">......</li>
@@ -12,6 +13,7 @@
         <ul :class="{ show: !isShow }">
           <li v-for="(header, index) in headerNavTwos"
               @click="addClass(index,'two')"
+              :key="index"
               :class="{ selected: index ===  currentTwo}"
           >{{header.text}}</li>
           <li @click="isShow = !isShow">......</li>
@@ -22,17 +24,20 @@
         <ul class="one-list" :class="{ oneCover: isOneCover }">
           <li v-for="(header, index) in headerNavThrees"
               @click="addClass(index,'three')"
+              :key="index"
               :class="{ unlimited: index === 0, active: index ===  currentThree}"
           >{{header.text}}</li>
         </ul>
         <ul class="two-list" :class="{ twoCover: isTwoCover, threeCover: isThreeCover }">
           <li v-for="(header, index) in headerNavFours"
+              :key="index"
               @click="addClass(index,'four')"
           >{{header.text}}</li>
         </ul>
         <ul class="three-list" :class="{ threeCover: isThreeCover }">
           <li v-for="(header, index) in headerNavFives"
               :class="{ unlimited: index === 0}"
+              :key="index"
               @click="addClass(index,'five')"
           >{{header.text}}</li>
         </ul>

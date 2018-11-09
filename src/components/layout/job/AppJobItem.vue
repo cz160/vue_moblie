@@ -1,5 +1,11 @@
 <template>
-     <li>
+     <router-link tag="li" :to="{name:'detail',params:{id:job.id},query:{
+         log_url:job.logo_url,
+        name:job.name,
+        company_name:job.company_name,
+        city:job.city,
+        pub_time:job.pub_time
+     }}">
         <a>
             <div class="left">
                 <img :src="job.logo_url">
@@ -13,7 +19,7 @@
                 <p class="price">￥180-181/天</p>
             </div>
         </a>
-    </li>
+     </router-link>
 </template>
 <script>
 export default {

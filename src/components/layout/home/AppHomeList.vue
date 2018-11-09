@@ -4,12 +4,13 @@
                 <ul class="list-box">
                     <app-home-item v-for="item in jobs" :key="item.id" :job="item"></app-home-item>
                 </ul>
-                <a class="more-list">前往职位列表，查看更多职位&gt;&gt;</a>
+                <router-link :to="{name:'job'}" class="more-list">前往职位列表，查看更多职位&gt;&gt;</router-link>
             </div>
         </div>
 </template>
 <script>
 import AppHomeItem from './AppHomeItem'
+import { Indicator } from 'mint-ui';
 export default {
     components:{
         AppHomeItem
@@ -25,11 +26,17 @@ export default {
     },
     methods:{
         add(){
+            //加载数据前
+            Indicator.open({
+                text: '加载中...',
+                spinnerType: 'triple-bounce'
+            });
             this.p++;
             this.$http({
                 url:`/app/jobs/search?p=${this.p}`,
                 }).then(res=>{
                     this.jobs.push(...res);
+                    Indicator.close();
                 })
             }
     }
