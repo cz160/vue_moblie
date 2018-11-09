@@ -7328,6 +7328,11 @@ vue@^2.5.17:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
   integrity sha512-mFbcWoDIJi0w0Za4emyLiW72Jae0yjANHbCVquMKijcavBGypqlF7zHRgMa5k4sesdv7hv2rB4JPdZfR+TPfhQ==
 
+vuescroll@^4.9.0-beta.11:
+  version "4.9.0-beta.11"
+  resolved "https://registry.yarnpkg.com/vuescroll/-/vuescroll-4.9.0-beta.11.tgz#c6c8c93b500b322d131c90ca65d8c655a40bdf7a"
+  integrity sha512-PrxTcUav0poKgdLnw+fTLaDMTeG37TV2Ipq2lKx39lgtik0dSKPMfjDDN4eFSkkrDvhqGziDHT7FCTUmxd/gGg==
+
 vuex@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"

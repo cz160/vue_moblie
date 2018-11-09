@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import vuescroll from 'vuescroll/dist/vuescroll-slide';
+import 'vuescroll/dist/vuescroll.css';
+
+Vue.use(vuescroll);
 
 Vue.use(VueRouter)
 
@@ -7,7 +11,7 @@ import AppHome from '@pages/home/AppHome'
 import AppCenter from '@pages/center/AppCenter'
 import AppXbs from '@pages/xbs/AppXbs'
 import AppJob from '@pages/job/AppJob'
-
+import AppSearch from '@pages/search/AppSearch'
 //路由表
 const routes = [
     {
@@ -33,6 +37,12 @@ const routes = [
         name:'job',
         component:AppJob
 
+    },
+    {
+        path:'/search',
+        name:'search',
+        component:AppSearch
+
     }
 ]
 //路由工具
@@ -42,3 +52,4 @@ const router = new VueRouter({
 })
 
 export default router
+

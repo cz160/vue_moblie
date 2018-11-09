@@ -3,7 +3,7 @@
     <!--头部粗略筛选-->
     <app-job-header></app-job-header>
     <!--主体内容-->
-    <main>
+    <main class="jobList">
       <app-job-list></app-job-list>
     </main>
   </section>
@@ -11,6 +11,7 @@
 <script>
   import AppJobHeader from '@c/base/AppJobHeader'
   import AppJobList from '@c/layout/job/AppJobList'
+  import fontAweSome from '../../../public/font-awesome/css/font-awesome.css'
 
   export default {
     //注册组件
@@ -42,12 +43,6 @@
   li{
     list-style: none;
   }
-  .content-parent{
-
-  }
-
-
-
 
 
 </style>
