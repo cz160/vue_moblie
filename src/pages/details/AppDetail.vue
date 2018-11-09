@@ -102,45 +102,43 @@
             </p>            
           </div> 
         </div> 
-
-
-
-    你好
-    
   </div>
   <!-- //<app-detail-foot></app-detail-foot> -->
-  <div class="s-last">
-      <div class="s-collect">
-        <a class="s-left-collect">
-          <!-- <img src="" alt=""> -->
-          <span>收藏</span>
-        </a>
-      </div>
-  </div>
+  <app-detail-footer></app-detail-footer>
 </section>
 </template>
 
 <script>
-//import AppDetailFoot from "@c/layout/detail/AppDetailFoot";
+import AppDetailFooter from "@c/layout/detail/AppDetailFooter";
 export default {
+  components:{
+    AppDetailFooter
+  },
   props:['id'],
+
   data(){
     return {
-      log_url:"https://xbimg.xiaobaishixi.com/FC/BD/FCC32665A730906176723F989BB367BD.png",
-      name:'关务客服实习生',
-      company_name:"敦豪物流",
-      city:"西安",
-      pub_time:"29分钟前"
+        log_url:"https://xbimg.xiaobaishixi.com/FC/BD/FCC32665A730906176723F989BB367BD.png",
+        name:'关务客服实习生',
+        company_name:"敦豪物流",
+        city:"西安",
+        pub_time:"29分钟前"
     }
+
   },
   mounted(){
-    this.name=this.$route.query.name
-    this.pub_time=this.$route.query.pub_time
-    this.log_url=this.$route.query.log_url
-    this.city=this.$route.query.city
-    this.company_namel=this.$route.query.company_name
+      this.name=this.$route.query.name
+      this.pub_time=this.$route.query.pub_time
+      this.log_url=this.$route.query.log_url
+      this.city=this.$route.query.city
+      this.company_namel=this.$route.query.company_name
+      console.log(this.$route.query)
   }
-};
+    // console.log(this)
+    // console.log(this.$route)
+    //this.log_url=
+
+  }
 </script>
 
 <style lang="scss">
@@ -369,31 +367,18 @@ export default {
     }
   }
   .awarn{
+    height: 3.633333rem;
+    margin-bottom: 1.76rem;
+    .info-title{
+      color: #b79442;
+    }
     .awarn-info{
       font-size: .293333rem;
       color:#b79442;
 
     }
   }
-
-
-
-
-
 }
-//底部
-  .s-last{
-    overflow: hidden;
-    height: .96rem;
-    padding: .173333rem .4rem;
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    margin-top: .4rem;
-    background: #fff;
-    color: #a1a1a1;
-    font-size: .266667rem;
-  }
 </style>
 
 

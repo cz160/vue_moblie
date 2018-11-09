@@ -14,11 +14,23 @@
         </div>
         <div class="s-list">
             <ul class="s-title s-public">
-                <li class="s-massage"
+                <!-- <li class="s-massage"
                 v-for='item in message'
                 :key="item.id"
                 >
                     <a>{{item.title}}</a>
+                </li> -->
+                <li class="s-massage">
+                    <a>我的投递</a>
+                </li>
+                <router-link tag="li" :to="{name:'collection'}" class="s-massage">
+                    <p>我的收藏</p>
+                </router-link>
+                <li class="s-massage">
+                    <a>我的简历</a>
+                </li>
+                <li class="s-massage">
+                    <a>我要测评</a>
                 </li>
                 
             </ul>
@@ -39,16 +51,16 @@ export default {
     components:{
         AppFoot
     },
-    data(){
-        return {
-            message:[
-                {id:1,title:'我的投递'},
-                {id:2,title:'我的收藏'},
-                {id:3,title:'我的简历'},
-                {id:4,title:'我要测评'}
-            ]
-        }
-    },
+    // data(){
+    //     return {
+    //         message:[
+    //             {id:1,title:'我的投递'},
+    //             {id:2,title:'我的收藏'},
+    //             {id:3,title:'我的简历'},
+    //             {id:4,title:'我要测评'}
+    //         ]
+    //     }
+    // },
     methods:{
         exit(){
             alert('是否退出登录')

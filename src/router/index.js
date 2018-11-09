@@ -11,6 +11,7 @@ import AppXbs from '@pages/xbs/AppXbs'
 import AppJob from '@pages/job/AppJob'
 import AppLogin from '@pages/login/AppLogin'
 import AppRegister from '@pages/register/AppRegister'
+import AppCollection from '@pages/collection/AppCollection'
 
 //路由表
 const routes = [
@@ -25,9 +26,15 @@ const routes = [
         path:'/center',
         name:'center',
         component:AppCenter,
+<<<<<<< HEAD
          //组件内的守卫
          beforeEnter:(to,from,next)=>{
             let info =JSON.parse(localStorage.getItem('info')) 
+=======
+        //组件内的守卫
+        beforeEnter:(to,from,next)=>{
+            let info =JSON.parse(localStorage.getItem('info'))
+>>>>>>> login
             next(info?true:{name:'login'})
         }
     },
@@ -62,6 +69,13 @@ const routes = [
         path:'/job',
         name:'job',
         component:AppJob
+
+    },
+    {
+        path:'/collection',
+        name:'collection',
+        component:AppCollection,
+       // props:true
 
     }
 ]
