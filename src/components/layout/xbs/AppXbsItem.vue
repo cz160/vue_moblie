@@ -1,6 +1,6 @@
 <template>
      <div class="item">
-        <img :src="list.cover_img">
+        <img v-lazy="list.cover_img">
         <div class="left">
             <h1 class="til">{{list.title}}</h1>
             <p>{{list.description}}</p>

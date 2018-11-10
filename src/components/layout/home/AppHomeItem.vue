@@ -9,7 +9,7 @@
         }}">
         <a>
             <div class="left">
-                <img :src="job.logo_url">
+                <img v-lazy="job.logo_url">
                 <div class="middle">
                     <p>{{job.name}}</p>
                     <p>{{job.company_name}}</p>

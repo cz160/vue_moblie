@@ -1,8 +1,8 @@
 //项目入口文件
 import Vue from 'vue'
 import App from './App.vue'
-
-
+import { Lazyload } from 'mint-ui';
+Vue.use(Lazyload)
 //flexible 移动端适配
 import '@libs/flexible'
 import './libs'

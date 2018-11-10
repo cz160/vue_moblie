@@ -3,6 +3,9 @@
          <!--头部轮播图-->
         <app-banner :billboards="billboards"></app-banner>
         <!--主体内容-->
+        <router-link  :to="{name:'job'}" class="search">
+            <img src="https://xbimg.xiaobaishixi.com/static/wap/img/search.png?v=539644f3ada4ea6768af4bd326e5b35f">
+        </router-link>
         <main>
             <div class="tab-bar">
                 <a v-for="item in tab_bar" :key="item.id">
@@ -99,6 +102,15 @@ export default {
                 }
             }
         }
+    }
+    .search{
+        position: absolute;
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: 10%;
+        width: 80%;
+        z-index: 10;
     }
 </style>
 
