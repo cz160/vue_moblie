@@ -4,7 +4,9 @@
         name:job.name,
         company_name:job.company_name,
         city:job.city,
-        pub_time:job.pub_time
+        pub_time:job.pub_time,
+        maxsalary:job.maxsalary,
+        minsalary:job.minsalary
        
         }}">
         <a>

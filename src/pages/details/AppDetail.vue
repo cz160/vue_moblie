@@ -132,11 +132,11 @@ export default {
       this.log_url=this.$route.query.log_url
       this.city=this.$route.query.city
       this.company_namel=this.$route.query.company_name
+      this.maxsalary=this.$route.query.maxsalary
+      this.minsalary=this.$route.query.minsalary
+     //console.log(this.$route)
   }
-    // console.log(this)
-    // console.log(this.$route)
-    //this.log_url=
-
+  
   }
 </script>
 
