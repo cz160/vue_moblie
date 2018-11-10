@@ -1,10 +1,10 @@
 <template>
   <section class="job-o">
     <!--头部粗略筛选-->
-    <app-job-header></app-job-header>
+    <app-job-header :show.sync="searchWords"></app-job-header>
     <!--主体内容-->
-    <main>
-      <app-job-list></app-job-list>
+    <main class="jobList">
+      <app-job-list :searchWords="searchWords"></app-job-list>
     </main>
     <app-foot></app-foot>
   </section>
@@ -12,6 +12,7 @@
 <script>
   import AppJobHeader from '@c/base/AppJobHeader'
   import AppJobList from '@c/layout/job/AppJobList'
+  import fontAweSome from '../../../public/font-awesome/css/font-awesome.css'
   import AppFoot from '@c/base/AppFoot'
   export default {
     //注册组件
@@ -22,9 +23,9 @@
     },
     data() {
       return {
-
+        searchWords: ''
       }
-    }
+    },
   }
 </script>
 <style lang="scss">
@@ -44,12 +45,9 @@
   li{
     list-style: none;
   }
-  // .content-parent{
-
-  // }
-
-
-
+  .jobList{
+    height: auto;
+  }
 
 
 </style>

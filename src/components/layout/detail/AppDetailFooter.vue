@@ -40,7 +40,6 @@ export default {
             var storage=window.localStorage
             var results=this.$route.query;
             var a=storage.getItem("data")
-            console.log(a)
             if(a){
                 a=JSON.parse(a) 
                 a.push(results)

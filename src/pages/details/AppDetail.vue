@@ -134,7 +134,6 @@ export default {
       this.company_namel=this.$route.query.company_name
       this.maxsalary=this.$route.query.maxsalary
       this.minsalary=this.$route.query.minsalary
-     //console.log(this.$route)
   }
   
   }

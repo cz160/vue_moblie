@@ -49,12 +49,14 @@
 <script>
   import jobList from '../../../public/data/jobList'
   export default {
+    props: ['show'],
     name: "app-job-header",
     data() {
       return {
         isShow : true, //两层导航栏 选择显示
         onShow: 0,    //记录导航栏中哪一个li的index
         whichNav: 0,  //记录导航栏中哪一个li的层数
+        oneCover: 0,
         isOneCover: false,
         isTwoCover: false,
         isThreeCover: false,
@@ -73,36 +75,9 @@
           {text: '实习月数'}
         ],
         //各种筛选条件
-        headerNavThrees: jobList.oneCover,
-        // headerNavThrees: [
-        //   {text: '不限'},
-        //   {text: '其他类型'},
-        //   {text: '建筑房产'},
-        //   {text: '市场商务'},
-        //   {text: '电子电气'},
-        //   {text: '人事行政'},
-        //   {text: '财政法务'},
-        //   {text: '媒体设计'},
-        //   {text: '教育咨询'},
-        //   {text: '外语外贸'},
-        //   {text: 'IT互联网'},
-        //   {text: '机械制造'}
-        // ],
-        headerNavFours: [
-          {text: '体育快消'},
-          {text: '物流采购'},
-          {text: '食品材料'},
-          {text: '生物医疗'},
-          {text: '能源环保'},
-          {text: 'NGO公益'}
-        ],
-        headerNavFives: [
-          {text: '不限'},
-          {text: '医药'},
-          {text: '医生'},
-          {text: '生物'},
-          {text: '护理'}
-        ]
+        headerNavThrees: [],
+        headerNavFours: [],
+        headerNavFives: []
       }
     },
     methods:{
@@ -110,26 +85,43 @@
         switch (which){
           //头部
           case 'one': this.currentOne = index;
-            !this.isOneCover ? this.isOneCover = !this.isOneCover : this.onShow === index ? this.isOneCover = !this.isOneCover : '';
-            this.onShow = index; this.whichNav = which; break;
+            !this.isOneCover ? this.isOneCover = !this.isOneCover : this.onShow === index ? this.isOneCover = !this.isOneCover : this.isTwoCover = !this.isTwoCover;
+            this.onShow = index; this.whichNav = which;
+            this.headerNavThrees = jobList.headerNav[this.onShow].oneCover; 
+            this.oneCover === 0 ? this.isTwoCover = false : '';
+            this.onShow > 1  ? this.isTwoCover = false : ''; break;
           case 'two': this.currentTwo = index;
-            !this.isOneCover ? this.isOneCover = !this.isOneCover : this.onShow === index ? this.isOneCover = !this.isOneCover : '';
-            this.onShow = index; this.whichNav = which; break;
+            !this.isOneCover ? this.isOneCover = !this.isOneCover : this.onShow === index ? this.isOneCover = !this.isOneCover : this.isTwoCover = !this.isTwoCover;
+            this.onShow = index; this.whichNav = which; 
+            this.headerNavThrees = jobList.headerNavTwo[this.onShow].oneCover;
+            this.isTwoCover = false;  break;
 
           //第一层列表
           case 'three': this.currentThree = index;
-            this.headerNavFours = jobList.oneCover[index].twoCover
-            index === 0 ? this.isOneCover = !this.isOneCover:'';
+            this.headerNavFours = jobList.headerNav[this.onShow].oneCover[index].twoCover
+            if( index === 0 ) {
+              this.isOneCover = !this.isOneCover;
+              this.$emit('update:show', '');
+            }
             this.whichNav === 'one' ? this.headerNavOnes[this.onShow].text =  this.headerNavThrees[index].text : this.headerNavTwos[this.onShow].text =  this.headerNavThrees[index].text;
-            this.isTwoCover ? this.isThreeCover = false : this.isTwoCover = true; break;
+            this.isTwoCover ? this.isThreeCover = false : this.isTwoCover = true;
+            if( !(this.whichNav === 'one' && this.onShow <= 1) ) {
+              this.isOneCover = false;
+              this.$emit('update:show', this.headerNavThrees[index].text);
+            }
+            this.oneCover = index; break;
 
           //第二层列表
           case 'four' : this.isThreeCover = true;
-            this.headerNavFives = jobList.oneCover[1].twoCover[index].threeCover
-            break;
-
+            this.headerNavFives = jobList.headerNav[this.onShow].oneCover[this.oneCover].twoCover[index].threeCover;
+            if(this.whichNav === 'one') {
+              if(this.onShow === 1) {
+                this.isOneCover = false ;
+                this.$emit('update:show', this.headerNavFours[index].text);
+              }
+            } break;
           //第三层列表
-          case 'five': this.isOneCover = !this.isOneCover;
+          case 'five': this.isOneCover = !this.isOneCover; this.$emit('update:show', this.headerNavFives[index].text);
             this.whichNav === 'one' ? this.headerNavOnes[this.onShow].text =  this.headerNavFives[index].text : this.headerNavTwos[this.onShow].text =  this.headerNavFives[index].text; break;
         }
       }
@@ -225,7 +217,8 @@
       }
       ul{
         width: 0;
-        height: 9.6rem;
+        min-height: 7.2rem;
+        max-height: 9.6rem;
         background: #fff;
         position: absolute;
         right: 0;
@@ -257,13 +250,13 @@
       ul.oneCover+ul.two-list.twoCover{
         width: 50%;
       }
-      ul.oneCover+ul.two-list.threeCover{
+      ul.oneCover+ul.two-list.twoCover.threeCover{
         width: 66.6%;
       }
       ul.oneCover+ul.two-list.selected{
         color: #333;
       }
-      ul.oneCover+ul.two-list.threeCover+ul.three-list.threeCover{
+      ul.oneCover+ul.two-list.twoCover.threeCover+ul.three-list.threeCover{
         width: 33.3%;
       }
     }

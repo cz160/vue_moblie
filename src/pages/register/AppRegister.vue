@@ -74,7 +74,7 @@ export default {
                     username: this.phone
                 }
             },true)
-            if(res.data.status !==0 ){  //验证码发送成功
+            if(res.data.status ===0 ){  //验证码发送成功
                 //存储
                 var obj = {user:this.phone,password:this.password}
                 localStorage.setItem('info',JSON.stringify(obj))

@@ -9,9 +9,11 @@ import AppDetail from '@pages/details/AppDetail'
 import AppCenterText from '@pages/center/AppCenterText'
 import AppXbs from '@pages/xbs/AppXbs'
 import AppJob from '@pages/job/AppJob'
+import AppSearch from '@pages/search/AppSearch'
 import AppLogin from '@pages/login/AppLogin'
 import AppRegister from '@pages/register/AppRegister'
 import AppCollection from '@pages/collection/AppCollection'
+import AppNotFound from '@pages/appNotFound/appNotFound'
 
 //路由表
 const routes = [
@@ -66,11 +68,26 @@ const routes = [
 
     },
     {
+        path:'/search',
+        name:'search',
+        component:AppSearch
+
+    },
+    {
         path:'/collection',
         name:'collection',
         component:AppCollection,
         props:true
 
+    },
+    {
+        path: '/404',
+        name: 'appNotFound',
+        component: AppNotFound,
+    },
+    {
+        path:'**',
+        redirect:'/404'
     }
 ]
 //路由工具
@@ -80,3 +97,4 @@ const router = new VueRouter({
 })
 
 export default router
+
