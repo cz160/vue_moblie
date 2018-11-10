@@ -13,7 +13,6 @@
   import AppJobHeader from '@c/base/AppJobHeader'
   import AppJobList from '@c/layout/job/AppJobList'
   import fontAweSome from '../../../public/font-awesome/css/font-awesome.css'
-
   import AppFoot from '@c/base/AppFoot'
   export default {
     //注册组件

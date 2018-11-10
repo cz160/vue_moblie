@@ -13,6 +13,7 @@ import AppSearch from '@pages/search/AppSearch'
 import AppLogin from '@pages/login/AppLogin'
 import AppRegister from '@pages/register/AppRegister'
 import AppCollection from '@pages/collection/AppCollection'
+import AppNotFound from '@pages/appNotFound/appNotFound'
 
 //路由表
 const routes = [
@@ -76,6 +77,11 @@ const routes = [
         path:'/collection',
         name:'collection',
         component:AppCollection,
+    },
+    {
+        path: '/404',
+        name: 'appNotFound',
+        component: AppNotFound,
     }
 ]
 //路由工具
