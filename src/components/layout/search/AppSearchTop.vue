@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         search() {
-            this.$emit('update:show', this.searchWords)
+          this.$emit('update:show', this.searchWords)
         }
     }
 };

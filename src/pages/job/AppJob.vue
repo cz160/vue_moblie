@@ -1,7 +1,7 @@
 <template>
   <section class="job-o">
     <!--头部粗略筛选-->
-    <app-job-header></app-job-header>
+    <app-job-header :show.sync="searchWords"></app-job-header>
     <!--主体内容-->
     <main class="jobList">
       <app-job-list :searchWords="searchWords"></app-job-list>
@@ -24,9 +24,9 @@
     },
     data() {
       return {
-        searchWords: null
+        searchWords: ''
       }
-    }
+    },
   }
 </script>
 <style lang="scss">
@@ -45,6 +45,9 @@
   }
   li{
     list-style: none;
+  }
+  .jobList{
+    height: auto;
   }
 
 

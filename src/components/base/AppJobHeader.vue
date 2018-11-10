@@ -49,6 +49,7 @@
 <script>
   import jobList from '../../../public/data/jobList'
   export default {
+    props: ['show'],
     name: "app-job-header",
     data() {
       return {
@@ -98,17 +99,29 @@
           //第一层列表
           case 'three': this.currentThree = index;
             this.headerNavFours = jobList.headerNav[this.onShow].oneCover[index].twoCover
-            index === 0 ? this.isOneCover = !this.isOneCover:''; 
+            if( index === 0 ) {
+              this.isOneCover = !this.isOneCover;
+              this.$emit('update:show', '');
+            }
             this.whichNav === 'one' ? this.headerNavOnes[this.onShow].text =  this.headerNavThrees[index].text : this.headerNavTwos[this.onShow].text =  this.headerNavThrees[index].text;
             this.isTwoCover ? this.isThreeCover = false : this.isTwoCover = true;
-            this.onShow > 1  ? this.isTwoCover = false : ''; this.oneCover = index; break;
+            if( !(this.whichNav === 'one' && this.onShow <= 1) ) {
+              this.isOneCover = false;
+              this.$emit('update:show', this.headerNavThrees[index].text);
+            }
+            this.oneCover = index; break;
 
           //第二层列表
           case 'four' : this.isThreeCover = true;
-            this.headerNavFives = jobList.headerNav[this.onShow].oneCover[this.oneCover].twoCover[index].threeCover; break;
-
+            this.headerNavFives = jobList.headerNav[this.onShow].oneCover[this.oneCover].twoCover[index].threeCover;
+            if(this.whichNav === 'one') {
+              if(this.onShow === 1) {
+                this.isOneCover = false ;
+                this.$emit('update:show', this.headerNavFours[index].text);
+              }
+            } break;
           //第三层列表
-          case 'five': this.isOneCover = !this.isOneCover;
+          case 'five': this.isOneCover = !this.isOneCover; this.$emit('update:show', this.headerNavFives[index].text);
             this.whichNav === 'one' ? this.headerNavOnes[this.onShow].text =  this.headerNavFives[index].text : this.headerNavTwos[this.onShow].text =  this.headerNavFives[index].text; break;
         }
       }

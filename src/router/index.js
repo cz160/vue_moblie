@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import vuescroll from 'vuescroll/dist/vuescroll-slide';
-import 'vuescroll/dist/vuescroll.css';
 
 Vue.use(VueRouter)
-Vue.use(vuescroll);
+
 import AppHome from '@pages/home/AppHome'
 import AppCenter from '@pages/center/AppCenter'
 import AppDetail from '@pages/details/AppDetail'

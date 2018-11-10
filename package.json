@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.13.2",
     "mint-ui": "^2.2.13",
     "vee-validate": "^2.1.2",
     "vue": "^2.5.17",

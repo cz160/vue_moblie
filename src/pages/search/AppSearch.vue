@@ -3,11 +3,11 @@
     <!--顶部搜索-->
     <app-search-top :show.sync="searchWords"></app-search-top>
     <!--头部粗略筛选-->
-    <app-job-header></app-job-header>
+    <app-job-header :show.sync="searchWords"></app-job-header>
     <!--主体内容-->
     <main class="jobList">
       <app-hot-search v-if="showBlock === 1"></app-hot-search>
-      <app-job-list v-if="showBlock === 2" :searchWords="searchWords"></app-job-list>
+      <app-job-list v-if="showBlock === 2" :searchWords="searchWords" :show.sync="showBlock"></app-job-list>
       <app-job-not-found v-if="showBlock === 3"></app-job-not-found>
     </main>
   </section>
@@ -32,7 +32,7 @@
     data() {
       return {
         showBlock: 1,
-        searchWords: null
+        searchWords: 'null'
       }
     },
     watch: {
