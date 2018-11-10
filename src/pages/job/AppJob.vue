@@ -4,7 +4,7 @@
     <app-job-header></app-job-header>
     <!--主体内容-->
     <main class="jobList">
-      <app-job-list></app-job-list>
+      <app-job-list :searchWords="searchWords"></app-job-list>
     </main>
     <app-foot></app-foot>
   </section>
@@ -24,7 +24,7 @@
     },
     data() {
       return {
-
+        searchWords: null
       }
     }
   }

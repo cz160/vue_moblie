@@ -16,17 +16,10 @@
   </div>
 </template>
 <script>
-<<<<<<< HEAD
-  import AppJobItem from './AppJobItem'
-
-  export default {
-    components: {
-=======
 import AppJobItem from './AppJobItem'
-import { Indicator } from 'mint-ui';
 export default {
+    props:[ 'searchWords' ],
     components:{
->>>>>>> master
       AppJobItem
     },
     data() {
@@ -44,7 +37,7 @@ export default {
                 beforeDeactive: '加载成功'
               },
               auto: true,
-              autoLoadDistance: 40
+              autoLoadDistance: 0
             },
             paging: false,
             zooming: true,
@@ -86,37 +79,42 @@ export default {
         name: 'myScroll'
       }
     },
-    created() {
-      this.$http({
-        url: `/app/jobs/search?p=${this.search}`,
-      }).then(res => {
-        this.jobs = res
-        // this.jobs = this.jobs.concat(res);
-      })
-    },
+    created(){
+      if(typeof this.searchWords !== 'string'){
+          this.$http({
+            url:`/app/jobs/search?p=1`,
+          }).then(res=>{
+            this.jobs=res;
+          })
+        }
+      },
     watch: {
       search: function(){
         this.$http({
           url: `/app/jobs/search?p=${this.search}`,
-        }).then(res => {
+        }).then((res) => {
             this.jobs = this.jobs.concat(res);
-    created(){
-        Indicator.open('加载中...');
+        })
+      },
+      searchWords: function(){
         this.$http({
-            url:`/app/jobs/search?p=1`,
-        }).then(res=>{
-            this.jobs=res;
-            Indicator.close();
+          url: `/app/jobs/search?p=${this.search}&k=${this.searchWords}`,
+        }).then((res) => {
+          this.jobs = res;
         })
       }
-    },
+    },  
     methods: {
       handleActivate(vm, refreshDom) {
 
       },
       handleStart(vm, refreshDom, done) {
-        this.search += 1
-        console.log(1);
+
+        setTimeout(() => {
+          this.search += 1
+          done()
+        },500)
+
       },
       handleBeforeDeactivate(vm, refreshDom, done) {
         done();
@@ -125,7 +123,6 @@ export default {
 
       }
     }
-
   };
 </script>
 <style lang="scss">
@@ -190,6 +187,10 @@ export default {
           }
         }
       }
+    }
+    .__load svg{
+      width: 100px;
+      height: 100px;
     }
   }
 </style>
