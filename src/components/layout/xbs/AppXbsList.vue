@@ -75,6 +75,7 @@ export default {
                 img{
                     width: 3rem;
                     height: 1.586667rem;
+                    flex-shrink:0;
                 }
                 .left{
                     margin-left: .266667rem;
