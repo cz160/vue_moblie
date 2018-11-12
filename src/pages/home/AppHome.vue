@@ -104,10 +104,9 @@ export default {
         }
     }
     .search{
-        position: absolute;
         display: inline-block;
         position: absolute;
-        top: 20px;
+        top: .266667rem;
         left: 10%;
         width: 80%;
         z-index: 10;
