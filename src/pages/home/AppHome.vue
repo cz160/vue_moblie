@@ -110,6 +110,10 @@ export default {
         left: 10%;
         width: 80%;
         z-index: 10;
+        img{
+            width: 100%;
+            height: 100%;
+        }
     }
 </style>
 
