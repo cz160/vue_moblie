@@ -7,7 +7,6 @@
         pub_time:job.pub_time,
         maxsalary:job.maxsalary,
         minsalary:job.minsalary
-       
         }}">
         <a>
             <div class="left">
