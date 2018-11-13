@@ -12,20 +12,6 @@ export default {
     props:['type'],
     components:{
         AppCollectionItem
-    },
-    watch:{
-        type:{
-            immediate:true,
-            handler(){
-                this.change()
-            }
-           
-        }
-    },
-    methods:{
-        change(){
-
-        }
     }
 }
 </script>

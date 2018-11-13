@@ -6,7 +6,7 @@ function resolve(url) {
 module.exports = {
     //进行webpack默认配置覆盖
     devServer:{
-        port:3333,
+        port:5500,
         proxy:{
             '/app':{
                 target: 'https://wap.xiaobaishixi.com/',

@@ -103,7 +103,6 @@
           </div> 
         </div> 
   </div>
-  <!-- //<app-detail-foot></app-detail-foot> -->
   <app-detail-footer></app-detail-footer>
 </section>
 </template>

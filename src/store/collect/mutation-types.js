@@ -1,0 +1,2 @@
+
+export const UPDATE_POSITION = 'UPDATE_POSITION'

@@ -14,6 +14,9 @@ export default {
     components:{
       AppHome,
       AppJob
+    },
+    beforeCreate(){
+      this.$store.dispatch('collect/init_Position')
     }
 }
 </script>

@@ -6,8 +6,8 @@
             <div class="collect" @click="getmessage">
                     <img src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt="">             
                 <a>
-                    <p>收藏</p>
-                    <!-- <a><p>已收藏</p></a> -->
+                    <p v-if="isshow">收藏</p>
+                    <p v-else>已收藏</p>
                 </a>           
             </div>
             <div class="empy">
@@ -29,26 +29,25 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
     data(){
         return {
-            isshow:false
+            isshow:true
         }
     },
     methods:{
+        ...mapActions({
+            addPositions:'collect/addPositions'
+        }),
+        //点击收藏
         getmessage(){
-            var storage=window.localStorage
-            var results=this.$route.query;
-            var a=storage.getItem("data")
-            if(a){
-                a=JSON.parse(a) 
-                a.push(results)
-                storage.setItem('data',JSON.stringify(a) )
-            }else{
-                storage.setItem('data',JSON.stringify([results]) )
-            }
-            
-            
+            this.isshow=false
+            let id = this.$route.params.id;
+            let {city,company_name,log_url,maxsalary,minsalary,name,pub_time} = this.$route.query
+            this.addPositions({
+                id,city,company_name,log_url,maxsalary,minsalary,name,pub_time
+            })
         }
 
     }

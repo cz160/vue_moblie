@@ -9,9 +9,6 @@
             >
                 <p>{{item.name}}</p>
             </div>
-            <!-- <div class="collection-right">
-                <p>公司收藏</p>
-            </div> -->
         </div>
         <app-collection-list :type="type"></app-collection-list>
     </div>
@@ -20,7 +17,6 @@
 <script>
 import AppCollectionList from '@c/layout/collection/AppCollectionList'
 export default {
-    props:['url'],
     components:{
         AppCollectionList
     },
@@ -30,9 +26,8 @@ export default {
                 {id:1,name:'职位收藏',type:'position'},
                 {id:2,name:'公司收藏',type:'company'}
             ],
-            type:this.url ||'position',
-            isBackShow:false,
-           
+            type:'position',
+            isBackShow:false,  
         }
     }
 }

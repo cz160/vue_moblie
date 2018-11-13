@@ -1,10 +1,12 @@
 <template>
      <router-link tag="li" :to="{name:'detail',params:{id:job.id},query:{
-         log_url:job.logo_url,
+        log_url:job.logo_url,
         name:job.name,
         company_name:job.company_name,
         city:job.city,
-        pub_time:job.pub_time
+        pub_time:job.pub_time,
+        maxsalary:job.maxsalary,
+        minsalary:job.minsalary
      }}">
         <a>
             <div class="left">
