@@ -13,6 +13,16 @@ const actions = {
             })
         }
     },
+    //删除职位信息
+    async removePositions(context,payload){
+        let result = api.removePositions(payload)
+        if(result.status===200){
+            context.commit({
+                type:UPDATE_POSITION,
+                position_info:result.position_info
+            })
+        }
+    },
     //初始化数据
     async init_Position(context){
         let result = await api.getPosition()

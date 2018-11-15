@@ -18,6 +18,18 @@ const api = {
             },200)
        })
    },
+   //从数据库中删除职位信息
+   removePositions({id}){
+        return new Promise(resolve=>{
+            setTimeout(async()=>{
+               //获得数据中保存的所有职位信息
+               let { position_info } = await this.getPosition()
+               position_info = position_info.filter(item=>item.id!==id)
+               this.changePositions(position_info)
+               resolve({status:200,position_info})
+            })
+        })
+   },
    //获得数据中保存的所有职位信息
    getPosition(){
        return new Promise(resolve=>{

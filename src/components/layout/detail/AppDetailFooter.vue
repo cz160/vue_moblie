@@ -31,6 +31,8 @@
 
 <script>
 import {mapActions} from 'vuex'
+import api from '@util/api'
+import _ from 'lodash'
 export default {
     data(){
         return {
@@ -39,18 +41,36 @@ export default {
     },
     methods:{
         ...mapActions({
-            addPositions:'collect/addPositions'
+            addPositions:'collect/addPositions',
+            removePositons:'collect/removePositions'
         }),
         //点击收藏
         getmessage(){
             this.isshow=!this.isshow
             let id = this.$route.params.id;
             let {city,company_name,log_url,maxsalary,minsalary,name,pub_time} = this.$route.query
-            this.addPositions({
-                id,city,company_name,log_url,maxsalary,minsalary,name,pub_time
-            })
+            if(!this.isshow){
+                 this.addPositions({
+                    id,city,company_name,log_url,maxsalary,minsalary,name,pub_time
+                })
+            }else{
+                this.removePositons({
+                    id
+                })
+            }
+           
         }
 
+    },
+    async created(){
+        //初始化收藏状态
+        let result = await api.getPosition()
+        let position_info = result.position_info
+        let isHave = _.find(position_info,item=>item.id==this.$route.params.id)
+        //如果数据库中已经收藏了本职位信息，将其状态默认更改为已经收藏
+        if(isHave){
+            this.isshow=false
+        }
     }
 }
 </script>
