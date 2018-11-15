@@ -5,6 +5,7 @@ import { Lazyload } from 'mint-ui';
 Vue.use(Lazyload)
 //flexible 移动端适配
 import '@libs/flexible'
+//引入swiper并将axios(ajax请求工具)挂载到vue的原型上
 import './libs'
 //router路由
 import router from './router'

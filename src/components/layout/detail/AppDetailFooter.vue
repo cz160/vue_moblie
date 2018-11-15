@@ -4,7 +4,8 @@
     <div class="s-footer">
         <div class="footer-last">
             <div class="collect" @click="getmessage">
-                    <img src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt="">             
+                    <img v-if="isshow" src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt=""> 
+                    <img v-else  src="https://xbimg.xiaobaishixi.com/static/wap/img/stared.png?v=9da0ea5c02cc85d99cfb80ca043d1e95" alt="">                       
                 <a>
                     <p v-if="isshow">收藏</p>
                     <p v-else>已收藏</p>
@@ -42,7 +43,7 @@ export default {
         }),
         //点击收藏
         getmessage(){
-            this.isshow=false
+            this.isshow=!this.isshow
             let id = this.$route.params.id;
             let {city,company_name,log_url,maxsalary,minsalary,name,pub_time} = this.$route.query
             this.addPositions({
@@ -88,5 +89,8 @@ export default {
         }
         
     }
+    // .active{
+    //     background: #ffd000
+    // }
 
 </style>
