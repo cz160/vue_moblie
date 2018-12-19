@@ -10,7 +10,7 @@
             </div>
         </router-link>
         
-        <div v-else>
+        <div v-else class="pic_img">
             <img src="https://xbimg.xiaobaishixi.com/static/wap/img/no-data2.png?v=ea8197c81de2507c5e3e60b75d1ac788" alt="">
         </div>
     </div>
@@ -24,16 +24,7 @@ export default {
         return {
           //  time:'/天',
             messages : null
-            // messages:[
-            //     {id:1,name:'设计师'},
-            //     {id:2,company_name:'原理动画'},
-            //     {id:3,minsalary:30},
-            //     {id:4,maxsalary:60}
-            // ]
-            // name:'设计师',
-            // company_name:'原理动画',
-            // minsalary:30,
-            // maxsalary:60
+          
         }
     },
     created(){
@@ -42,11 +33,6 @@ export default {
         this.messages = JSON.parse(d)
 
 
-        // this.messages.name=message.name
-        // this.messages.company_name=message.company_name
-        // this.messages.minsalary=message.minsalary
-        // this.messages.maxsalary=message.maxsalary
-       // console.log(this.messages)
     }
 }
 </script>
@@ -59,9 +45,11 @@ export default {
     bottom: 0;
     overflow: auto;
     background-color: #FFF;
-    img{
-        text-align: center;
-        vertical-align: middle;
+    .pic_img{
+        width: 5.44rem;
+        height: 4.88rem;
+        margin-top: 2.6rem;
+       margin-left: 2.28rem;
     }
 }
 .introduce{

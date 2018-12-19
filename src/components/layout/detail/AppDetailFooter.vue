@@ -4,10 +4,14 @@
     <div class="s-footer">
         <div class="footer-last">
             <div class="collect" @click="getmessage">
-                    <img src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt="">             
-                <a>
-                    <p>收藏</p>
-                    <!-- <a><p>已收藏</p></a> -->
+                <p @click="isshow=!isshow">
+                    <img v-if="isshow" src="http://xbimg.xiaobaishixi.com/static/wap/img/star.png" alt="">  
+                    <img v-else src="https://xbimg.xiaobaishixi.com/static/wap/img/stared.png" alt=""> 
+                </p>
+                              
+                <a @click="isshow=!isshow">
+                    <p v-if="isshow">收藏</p>
+                   <p v-else>已收藏</p>
                 </a>           
             </div>
             <div class="empy">
@@ -32,7 +36,8 @@
 export default {
     data(){
         return {
-            isshow:false
+            isshow:true
+
         }
     },
     methods:{
